@@ -1,18 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+import { tokens } from '../../theme/tokens';
+import { AppText } from '../../ui/AppText';
+import { Screen } from '../../ui/Screen';
 
 export function ProfileScreen() {
   return (
-    <View style={styles.container} accessibilityLabel="Profile screen">
-      <Text accessibilityRole="header">Profile</Text>
-    </View>
+    <Screen style={styles.container} accessibilityLabel="Profile screen">
+      <AppText accessibilityRole="header" variant="title">
+        Profile
+      </AppText>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    padding: tokens.spacing.md,
   },
 });

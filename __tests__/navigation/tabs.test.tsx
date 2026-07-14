@@ -41,6 +41,8 @@ describe('JS Tabs shell', () => {
 
       expect(view.getByLabelText(screenLabel)).toBeTruthy();
       expect(view.queryByText(/mic|microphone|audio|record/i)).toBeNull();
+      expect(view.queryByLabelText(/dark mode/i)).toBeNull();
+      expect(view.queryByText(/dark mode/i)).toBeNull();
     }
 
     expect(result.getPathname()).toBe('/');

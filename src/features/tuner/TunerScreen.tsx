@@ -1,18 +1,23 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+import { tokens } from '../../theme/tokens';
+import { AppText } from '../../ui/AppText';
+import { Screen } from '../../ui/Screen';
 
 export function TunerScreen() {
   return (
-    <View style={styles.container} accessibilityLabel="Tuner screen">
-      <Text accessibilityRole="header">Tuner</Text>
-    </View>
+    <Screen style={styles.container} accessibilityLabel="Tuner screen">
+      <AppText accessibilityRole="header" variant="title">
+        Tuner
+      </AppText>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    padding: tokens.spacing.md,
   },
 });
