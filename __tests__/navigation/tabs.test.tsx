@@ -16,7 +16,6 @@ async function pressTab(
 ) {
   await act(async () => {
     fireEvent.press(view.getByLabelText(label));
-    jest.advanceTimersByTime(0);
   });
 }
 
