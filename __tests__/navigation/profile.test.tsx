@@ -9,7 +9,10 @@ async function openProfile() {
 
   await act(async () => {
     fireEvent.press(view.getByLabelText('Profile'));
-    jest.advanceTimersByTime(0);
+  });
+
+  await waitFor(() => {
+    expect(view.getByLabelText('Profile screen')).toBeTruthy();
   });
 
   return { result, view };
@@ -51,12 +54,14 @@ describe('Profile progress stub', () => {
 
     await act(async () => {
       fireEvent.press(view.getByLabelText('Chords'));
-      jest.advanceTimersByTime(0);
     });
 
-    expect(view.getByLabelText('Chords screen')).toBeTruthy();
+    await waitFor(() => {
+      expect(view.getByLabelText('Chords screen')).toBeTruthy();
+      expect(result.getPathname()).toBe('/chords');
+    });
+
     expect(view.getByRole('header')).toHaveTextContent('Chords');
     expect(view.queryByText(/catalog|quiz|coming soon|mic|microphone/i)).toBeNull();
-    expect(result.getPathname()).toBe('/chords');
   });
 });

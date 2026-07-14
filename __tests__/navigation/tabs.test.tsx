@@ -1,4 +1,4 @@
-import { act, fireEvent, renderRouter } from 'expo-router/testing-library';
+import { act, fireEvent, renderRouter, waitFor } from 'expo-router/testing-library';
 
 const TAB_LABELS = ['Home', 'Chords', 'Songs', 'Tuner', 'Profile'] as const;
 
@@ -67,10 +67,11 @@ describe('Home learning hub', () => {
 
     await act(async () => {
       fireEvent.press(view.getByLabelText('Open Chords shortcut'));
-      jest.advanceTimersByTime(0);
     });
 
-    expect(view.getByLabelText('Chords screen')).toBeTruthy();
-    expect(result.getPathname()).toBe('/chords');
+    await waitFor(() => {
+      expect(view.getByLabelText('Chords screen')).toBeTruthy();
+      expect(result.getPathname()).toBe('/chords');
+    });
   });
 });
