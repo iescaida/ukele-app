@@ -32,7 +32,7 @@ describe('theme/ui primitives', () => {
     const view = await render(<ChordsScreen />);
 
     expect(view.getByLabelText('Chords screen')).toBeTruthy();
-    expect(view.getByRole('header')).toHaveTextContent('Chords');
+    expect(view.getByRole('header').props.children).toBe('Chords');
     expect(view.queryByLabelText(/dark mode/i)).toBeNull();
   });
 });
