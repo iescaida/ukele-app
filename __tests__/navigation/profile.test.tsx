@@ -54,9 +54,11 @@ describe('Profile progress stub', () => {
     const result = renderRouter('app');
     const view = await result;
 
+    jest.useFakeTimers();
     await act(async () => {
       fireEvent.press(view.getByLabelText('Chords'));
     });
+    jest.useRealTimers();
 
     await waitFor(() => {
       expect(view.getByLabelText('Chords screen')).toBeTruthy();
