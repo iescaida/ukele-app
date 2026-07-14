@@ -3,7 +3,13 @@ import { render } from '@testing-library/react-native';
 import { AppText } from '../../src/ui/AppText';
 import { Screen } from '../../src/ui/Screen';
 import { tokens } from '../../src/theme/tokens';
-import { ChordsScreen } from '../../src/features/chords/ChordsScreen';
+import { ChordsListScreen } from '../../src/features/chords/ChordsListScreen';
+import { SongsScreen } from '../../src/features/songs/SongsScreen';
+
+jest.mock('expo-router', () => ({
+  router: { push: jest.fn() },
+  Link: ({ children }: { children: React.ReactNode }) => children,
+}));
 
 describe('theme/ui primitives', () => {
   it('exports light-only color tokens without a dark palette', () => {
@@ -28,11 +34,13 @@ describe('theme/ui primitives', () => {
     expect(view.queryByText(/dark mode/i)).toBeNull();
   });
 
-  it('feature stubs compose Screen/AppText instead of raw Views', async () => {
-    const view = await render(<ChordsScreen />);
+  it('feature screens compose Screen/AppText instead of raw Views', async () => {
+    const chords = await render(<ChordsListScreen />);
+    expect(chords.getByLabelText('Chords screen')).toBeTruthy();
+    expect(chords.queryByLabelText(/dark mode/i)).toBeNull();
 
-    expect(view.getByLabelText('Chords screen')).toBeTruthy();
-    expect(view.getByRole('header').props.children).toBe('Chords');
-    expect(view.queryByLabelText(/dark mode/i)).toBeNull();
+    const songs = await render(<SongsScreen />);
+    expect(songs.getByLabelText('Songs screen')).toBeTruthy();
+    expect(songs.getByRole('header').props.children).toBe('Songs');
   });
 });
