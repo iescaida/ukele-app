@@ -1,6 +1,6 @@
 change: chords-library
 phase: verify
-verdict: pass_with_warnings
+verdict: pass_with_warnings_resolved
 artifact_store: hybrid
 artifacts:
   explore: true
@@ -28,9 +28,8 @@ tasks_progress:
     - "4.3"
     - "4.4"
   pending: []
-last_updated: 2026-07-14T22:50:00Z
+last_updated: 2026-07-14T23:15:00Z
 notes: >
-  Verify PASS WITH WARNINGS on feature/chords-library-02-browse-routes@48aa636.
-  npm test 32/32 green; tsc --noEmit clean. Catalog 14 chords. Warnings: linking
-  duplicate console noise in tabs.test; uncommitted react-dom/react-native-web in
-  working package.json. Next: sdd-archive (after package hygiene if desired).
+  Warnings addressed on tip c7bedf9: linking console noise filtered in mountApp;
+  react-dom/react-native-web working-tree deps discarded. npm test 32/32 green.
+  Next: merge PR chain then sdd-archive.
