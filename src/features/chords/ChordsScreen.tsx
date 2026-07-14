@@ -1,18 +1,21 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+import { AppText } from '../../ui/AppText';
+import { Screen } from '../../ui/Screen';
 
 export function ChordsScreen() {
   return (
-    <View style={styles.container} accessibilityLabel="Chords screen">
-      <Text accessibilityRole="header">Chords</Text>
-    </View>
+    <Screen style={styles.container} accessibilityLabel="Chords screen">
+      <AppText accessibilityRole="header" variant="title">
+        Chords
+      </AppText>
+    </Screen>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
   },
 });

@@ -1,4 +1,4 @@
-import { act, fireEvent, renderRouter } from 'expo-router/testing-library';
+import { act, fireEvent, renderRouter, waitFor } from 'expo-router/testing-library';
 
 const TAB_LABELS = ['Home', 'Chords', 'Songs', 'Tuner', 'Profile'] as const;
 
@@ -41,8 +41,39 @@ describe('JS Tabs shell', () => {
 
       expect(view.getByLabelText(screenLabel)).toBeTruthy();
       expect(view.queryByText(/mic|microphone|audio|record/i)).toBeNull();
+      expect(view.queryByLabelText(/dark mode/i)).toBeNull();
+      expect(view.queryByText(/dark mode/i)).toBeNull();
     }
 
     expect(result.getPathname()).toBe('/');
+  });
+});
+
+describe('Home learning hub', () => {
+  it('shows resume placeholder and feature shortcuts on Home', async () => {
+    const result = renderRouter('app');
+    const view = await result;
+
+    expect(view.getByLabelText('Home screen')).toBeTruthy();
+    expect(view.getByLabelText('Resume progress placeholder')).toBeTruthy();
+    expect(view.getByLabelText('Open Chords shortcut')).toBeTruthy();
+    expect(view.getByLabelText('Open Songs shortcut')).toBeTruthy();
+    expect(view.getByLabelText('Open Tuner shortcut')).toBeTruthy();
+  });
+
+  it('navigates to Chords when the Chords shortcut is pressed', async () => {
+    const result = renderRouter('app');
+    const view = await result;
+
+    jest.useFakeTimers();
+    await act(async () => {
+      fireEvent.press(view.getByLabelText('Open Chords shortcut'));
+    });
+    jest.useRealTimers();
+
+    await waitFor(() => {
+      expect(view.getByLabelText('Chords screen')).toBeTruthy();
+      expect(result.getPathname()).toBe('/chords');
+    });
   });
 });
