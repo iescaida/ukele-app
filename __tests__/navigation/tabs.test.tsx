@@ -1,0 +1,48 @@
+import { act, fireEvent, renderRouter } from 'expo-router/testing-library';
+
+const TAB_LABELS = ['Home', 'Chords', 'Songs', 'Tuner', 'Profile'] as const;
+
+const TAB_SCREENS = [
+  ['Chords', 'Chords screen'],
+  ['Songs', 'Songs screen'],
+  ['Tuner', 'Tuner screen'],
+  ['Profile', 'Profile screen'],
+  ['Home', 'Home screen'],
+] as const;
+
+async function pressTab(
+  view: Awaited<ReturnType<typeof renderRouter>>,
+  label: string,
+) {
+  await act(async () => {
+    fireEvent.press(view.getByLabelText(label));
+  });
+}
+
+describe('JS Tabs shell', () => {
+  it('defaults to Home at pathname / and exposes five peer tabs', async () => {
+    const result = renderRouter('app');
+    const view = await result;
+
+    expect(result.getPathname()).toBe('/');
+    expect(view.getByLabelText('Home screen')).toBeTruthy();
+
+    for (const label of TAB_LABELS) {
+      expect(view.getByLabelText(label)).toBeTruthy();
+    }
+  });
+
+  it('reaches each peer tab screen by title without mic or audio UI', async () => {
+    const result = renderRouter('app');
+    const view = await result;
+
+    for (const [tabLabel, screenLabel] of TAB_SCREENS) {
+      await pressTab(view, tabLabel);
+
+      expect(view.getByLabelText(screenLabel)).toBeTruthy();
+      expect(view.queryByText(/mic|microphone|audio|record/i)).toBeNull();
+    }
+
+    expect(result.getPathname()).toBe('/');
+  });
+});
