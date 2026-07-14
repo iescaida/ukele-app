@@ -7,6 +7,7 @@ async function openProfile() {
   const result = renderRouter('app');
   const view = await result;
 
+  jest.useFakeTimers();
   await act(async () => {
     fireEvent.press(view.getByLabelText('Profile'));
   });
@@ -14,6 +15,7 @@ async function openProfile() {
   await waitFor(() => {
     expect(view.getByLabelText('Profile screen')).toBeTruthy();
   });
+  jest.useRealTimers();
 
   return { result, view };
 }
