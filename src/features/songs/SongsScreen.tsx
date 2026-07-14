@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 
-import { tokens } from '../../theme/tokens';
 import { AppText } from '../../ui/AppText';
 import { Screen } from '../../ui/Screen';
 
@@ -18,6 +17,5 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    padding: tokens.spacing.md,
   },
 });
