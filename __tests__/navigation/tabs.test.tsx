@@ -1,4 +1,4 @@
-import { mountApp, pressLabel, waitFor } from './mountApp';
+import { mountApp, pressLabel, waitFor } from '../../src/testing/mountApp';
 
 const TAB_LABELS = ['Home', 'Chords', 'Songs', 'Tuner', 'Profile'] as const;
 

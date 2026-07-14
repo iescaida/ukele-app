@@ -25,7 +25,7 @@ Chain strategy: feature-branch-chain
 
 ## Phase 1: Catalog foundation (PR1)
 
-- [x] 1.1 RED `__tests__/content/chordsCatalog.test.ts`: `listChords` ~12–15 high-G GCEA; `getChordById("C")` / unknown; group by `level`; filter All/Major/Minor/7th
+- [x] 1.1 RED `__tests__/content/chordsCatalog.test.ts`: `listChords` ~12–20 high-G GCEA; `getChordById("C")` / unknown; group by `level`; filter All/Major/Minor/7th
 - [x] 1.2 GREEN `src/content/chords/{types.ts,chords.json,catalog.ts}`: typed Chord; frets[0]=G; `tuning: "gcea-high-g"`; stable ids; group/filter helpers
 - [x] 1.3 REFACTOR catalog exports; keep pure (no RN)
 

@@ -2,12 +2,12 @@
 
 ## Intent
 
-Offline chords browse: ~12–15 open-position chords with diagrams. Next MVP slice after archived `app-foundation`.
+Offline chords browse: ~12–20 open-position chords with diagrams. Next MVP slice after archived `app-foundation`.
 
 ## Scope
 
 ### In Scope
-- Bundled JSON catalog (~12–15 chords, high-G GCEA) + typed loaders
+- Bundled JSON catalog (~12–20 chords, high-G GCEA) + typed loaders
 - Nested Stack: list → detail (`/chords`, `/chords/[chordId]`)
 - Sectioned by `level` + quality chips (All / Major / Minor / 7th)
 - SVG diagram: frets, finger numbers, G–C–E–A L→R (nut on top)

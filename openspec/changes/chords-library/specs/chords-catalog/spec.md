@@ -4,12 +4,12 @@
 Bundled offline chords with typed loaders, level grouping, quality filter.
 
 ### Requirement: Bundled starter catalog
-System MUST ship ~12–15 open-position chords with stable `id`, `name`, `displayName`, `quality`, `root`, `level`, `tags`, `frets`, `fingers`, `barres`, `baseFret`, `tuning: "gcea-high-g"`. High-G GCEA only. IDs MUST stay stable for future `favoriteChordIds`. MUST NOT use network/CMS.
+System MUST ship ~12–20 open-position chords with stable `id`, `name`, `displayName`, `quality`, `root`, `level`, `tags`, `frets`, `fingers`, `barres`, `baseFret`, `tuning: "gcea-high-g"`. High-G GCEA only. IDs MUST stay stable for future `favoriteChordIds`. MUST NOT use network/CMS.
 
 #### Scenario: Catalog loads offline
 - GIVEN app offline
 - WHEN `listChords` runs
-- THEN ~12–15 chords with required fields and `tuning: "gcea-high-g"`
+- THEN ~12–20 chords with required fields and `tuning: "gcea-high-g"`
 
 #### Scenario: Lookup by id
 - GIVEN id `C` exists

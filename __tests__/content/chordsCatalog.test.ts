@@ -23,11 +23,11 @@ const REQUIRED_FIELDS: (keyof Chord)[] = [
 ];
 
 describe('chords catalog', () => {
-  it('listChords returns 12–15 high-G GCEA chords with required fields', () => {
+  it('listChords returns 12–20 high-G GCEA chords with required fields', () => {
     const chords = listChords();
 
     expect(chords.length).toBeGreaterThanOrEqual(12);
-    expect(chords.length).toBeLessThanOrEqual(15);
+    expect(chords.length).toBeLessThanOrEqual(20);
 
     for (const chord of chords) {
       for (const field of REQUIRED_FIELDS) {

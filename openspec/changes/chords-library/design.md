@@ -10,7 +10,7 @@ Offline chords browse: bundled high-G GCEA JSON → pure catalog helpers → SVG
 
 | Decision | Tradeoff | Choice |
 |----------|----------|--------|
-| Catalog | JSON vs SQLite vs CMS | **Bundled typed JSON** `src/content/chords/` (~12–15) |
+| Catalog | JSON vs SQLite vs CMS | **Bundled typed JSON** `src/content/chords/` (~12–20) |
 | Diagram | SVG vs PNG vs Skia | **`react-native-svg`** (`npx expo install`) |
 | Nav | Nested Stack vs root routes vs modal | **`app/(tabs)/chords/{_layout,index,[chordId]}`** |
 | Tuning | multi vs single | **`tuning: "gcea-high-g"`** only |

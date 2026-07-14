@@ -6,20 +6,15 @@ import {
 } from 'expo-router/testing-library';
 
 /**
- * RNTL 14 `render` is async while expo-router `renderRouter` enables fake timers.
- * Advance timers once so the render promise can settle, then switch to real timers.
- *
- * Auto-cleanup after renderRouter hangs with fake timers — disabled in jest.setup.
- * Run navigation suites in separate Jest processes when isolation is needed.
+ * RNTL 14 `render` is async while expo-router `renderRouter` may enable fake timers.
+ * Prefer awaiting the router promise and asserting with `waitFor` — avoid nested
+ * `advanceTimersByTime` inside `act`, which triggers React act warnings.
  */
 export async function mountApp(
   options?: Parameters<typeof renderRouter>[1],
 ) {
-  jest.useRealTimers();
   const result = renderRouter('app', options);
-  jest.advanceTimersByTime(1);
   const view = await result;
-  jest.useRealTimers();
   return { result, view };
 }
 
