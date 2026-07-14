@@ -1,9 +1,18 @@
-import { mountApp, pressLabel, waitFor } from '../../src/testing/mountApp';
+import {
+  mountApp,
+  pressLabel,
+  restoreRouterLinkingNoise,
+  waitFor,
+} from '../../src/testing/mountApp';
 
 const TAB_LABELS = ['Home', 'Chords', 'Songs', 'Tuner', 'Profile'] as const;
 
 afterEach(() => {
   jest.useRealTimers();
+});
+
+afterAll(() => {
+  restoreRouterLinkingNoise();
 });
 
 describe('JS Tabs shell', () => {

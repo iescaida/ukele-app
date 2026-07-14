@@ -1,10 +1,19 @@
 import { router } from 'expo-router';
 import { act } from 'expo-router/testing-library';
 
-import { mountApp, pressLabel, waitFor } from '../../src/testing/mountApp';
+import {
+  mountApp,
+  pressLabel,
+  restoreRouterLinkingNoise,
+  waitFor,
+} from '../../src/testing/mountApp';
 
 afterEach(() => {
   jest.useRealTimers();
+});
+
+afterAll(() => {
+  restoreRouterLinkingNoise();
 });
 
 describe('Chords nested stack', () => {
