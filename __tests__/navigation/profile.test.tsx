@@ -3,10 +3,6 @@ import { act, fireEvent, renderRouter, waitFor } from 'expo-router/testing-libra
 
 import { saveUserProgress } from '../../src/storage/userProgress';
 
-jest.mock('@react-native-async-storage/async-storage', () =>
-  require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
-);
-
 async function openProfile() {
   const result = renderRouter('app');
   const view = await result;

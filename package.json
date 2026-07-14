@@ -32,7 +32,10 @@
     "test:watch": "jest --watchAll"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupFiles": [
+      "./jest.setup.ts"
+    ]
   },
   "private": true
 }

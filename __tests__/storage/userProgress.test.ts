@@ -8,10 +8,6 @@ import {
   type UserProgress,
 } from '../../src/storage/userProgress';
 
-jest.mock('@react-native-async-storage/async-storage', () =>
-  require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
-);
-
 describe('userProgress storage', () => {
   beforeEach(async () => {
     await AsyncStorage.clear();
