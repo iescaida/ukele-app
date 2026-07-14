@@ -48,3 +48,29 @@ describe('JS Tabs shell', () => {
     expect(result.getPathname()).toBe('/');
   });
 });
+
+describe('Home learning hub', () => {
+  it('shows resume placeholder and feature shortcuts on Home', async () => {
+    const result = renderRouter('app');
+    const view = await result;
+
+    expect(view.getByLabelText('Home screen')).toBeTruthy();
+    expect(view.getByLabelText('Resume progress placeholder')).toBeTruthy();
+    expect(view.getByLabelText('Open Chords shortcut')).toBeTruthy();
+    expect(view.getByLabelText('Open Songs shortcut')).toBeTruthy();
+    expect(view.getByLabelText('Open Tuner shortcut')).toBeTruthy();
+  });
+
+  it('navigates to Chords when the Chords shortcut is pressed', async () => {
+    const result = renderRouter('app');
+    const view = await result;
+
+    await act(async () => {
+      fireEvent.press(view.getByLabelText('Open Chords shortcut'));
+      jest.advanceTimersByTime(0);
+    });
+
+    expect(view.getByLabelText('Chords screen')).toBeTruthy();
+    expect(result.getPathname()).toBe('/chords');
+  });
+});
