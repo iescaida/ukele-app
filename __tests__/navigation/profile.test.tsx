@@ -29,7 +29,7 @@ describe('Profile progress stub', () => {
     const { view } = await openProfile();
 
     expect(view.getByLabelText('Profile screen')).toBeTruthy();
-    expect(view.getByLabelText('Skill level')).toHaveTextContent('unknown');
+    expect(view.getByLabelText('Skill level').props.children).toBe('unknown');
     expect(view.queryByText(/sign in|log in|account/i)).toBeNull();
   });
 
