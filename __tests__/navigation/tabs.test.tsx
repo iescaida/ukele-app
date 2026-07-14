@@ -65,9 +65,11 @@ describe('Home learning hub', () => {
     const result = renderRouter('app');
     const view = await result;
 
+    jest.useFakeTimers();
     await act(async () => {
       fireEvent.press(view.getByLabelText('Open Chords shortcut'));
     });
+    jest.useRealTimers();
 
     await waitFor(() => {
       expect(view.getByLabelText('Chords screen')).toBeTruthy();
