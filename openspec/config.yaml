@@ -1,0 +1,33 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Expo SDK 57, React Native 0.86, React 19, TypeScript (strict), Expo Router
+  Architecture: thin app/ routes; features/theme/ui/storage/content under src/
+  Testing: Jest + jest-expo + RNTL (Strict TDD); tests in __tests__/
+  Persistence: hybrid (Engram + openspec/ markdown)
+  Style: offline-first learning shell; reuse Screen/AppText/tokens
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Document architecture decisions with rationale
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+    - Forecast 400-line PR budget and chained PRs when needed
+  apply:
+    guidelines:
+      - Follow existing code patterns
+      - Thin app/ routes; logic outside app/
+    tdd: true
+    test_command: "npm test"
+  verify:
+    test_command: "npm test"
+    build_command: "npx tsc --noEmit"
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas
