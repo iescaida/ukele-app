@@ -45,7 +45,7 @@ describe('Profile progress stub', () => {
     const { view } = await openProfile();
 
     await waitFor(() => {
-      expect(view.getByLabelText('Skill level')).toHaveTextContent('intermediate');
+      expect(view.getByLabelText('Skill level').props.children).toBe('intermediate');
     });
     expect(view.queryByText(/sign in|log in|account/i)).toBeNull();
   });
