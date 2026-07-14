@@ -38,14 +38,14 @@ Chain strategy: feature-branch-chain
 
 ## Phase 3: Browse UI (PR2)
 
-- [ ] 3.1 RED `__tests__/features/chordsList.test.tsx`: level sections + chips; Minor narrows; row a11y names; no favorites/search
-- [ ] 3.2 GREEN `ChordsListScreen.tsx` (+ optional `QualityFilterChips.tsx`); navigate by id
-- [ ] 3.3 RED threat — unknown id: `__tests__/features/chordDetail.test.tsx` safe fallback + return path; happy path diagram+English meta/tips
-- [ ] 3.4 GREEN `ChordDetailScreen.tsx`; a11y `"Chord detail screen"`; delete stub `ChordsScreen.tsx`
+- [x] 3.1 RED `__tests__/features/chordsList.test.tsx`: level sections + chips; Minor narrows; row a11y names; no favorites/search
+- [x] 3.2 GREEN `ChordsListScreen.tsx` (+ optional `QualityFilterChips.tsx`); navigate by id
+- [x] 3.3 RED threat — unknown id: `__tests__/features/chordDetail.test.tsx` safe fallback + return path; happy path diagram+English meta/tips
+- [x] 3.4 GREEN `ChordDetailScreen.tsx`; a11y `"Chord detail screen"`; delete stub `ChordsScreen.tsx`
 
 ## Phase 4: Nested routes + nav smoke (PR2)
 
-- [ ] 4.1 RED `__tests__/navigation/chordsStack.test.tsx`: list→detail→back; tab bar available; Songs/Tuner empty
-- [ ] 4.2 RED threat — a11y smoke: update `__tests__/navigation/tabs.test.tsx` + Home `/chords` keep list `accessibilityLabel="Chords screen"`
-- [ ] 4.3 GREEN: delete `app/(tabs)/chords.tsx`; add `chords/{_layout,index,[chordId]}.tsx`; thin wiring; tweak `(tabs)/_layout.tsx` headers
-- [ ] 4.4 Verify `userProgress.ts` untouched; `npx tsc --noEmit` + focused nav/UI tests green
+- [x] 4.1 RED `__tests__/navigation/chordsStack.test.tsx`: list→detail→back; tab bar available; Songs/Tuner empty
+- [x] 4.2 RED threat — a11y smoke: update `__tests__/navigation/tabs.test.tsx` + Home `/chords` keep list `accessibilityLabel="Chords screen"`
+- [x] 4.3 GREEN: delete `app/(tabs)/chords.tsx`; add `chords/{_layout,index,[chordId]}.tsx`; thin wiring; tweak `(tabs)/_layout.tsx` headers
+- [x] 4.4 Verify `userProgress.ts` untouched; `npx tsc --noEmit` + focused nav/UI tests green
