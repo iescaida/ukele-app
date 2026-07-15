@@ -1,6 +1,6 @@
 change: chords-library
-phase: verify
-verdict: pass_with_warnings_resolved
+phase: archived
+verdict: closed
 artifact_store: hybrid
 artifacts:
   explore: true
@@ -10,6 +10,7 @@ artifacts:
   tasks: true
   apply_progress: true
   verify_report: true
+  archive_report: true
 tasks_progress:
   completed:
     - "1.1"
@@ -28,8 +29,8 @@ tasks_progress:
     - "4.3"
     - "4.4"
   pending: []
-last_updated: 2026-07-14T23:15:00Z
+last_updated: 2026-07-15T15:30:00Z
 notes: >
-  Warnings addressed on tip c7bedf9: linking console noise filtered in mountApp;
-  react-dom/react-native-web working-tree deps discarded. npm test 32/32 green.
-  Next: merge PR chain then sdd-archive.
+  Archived after PR #3/#5/#4 merged to main (tip c08cb78). Main specs synced;
+  change moved to openspec/changes/archive/2026-07-15-chords-library/.
+  Engram archive-report + state upserted. Next: /sdd-new songs-collection.

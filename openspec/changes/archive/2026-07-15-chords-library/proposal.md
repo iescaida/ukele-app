@@ -68,8 +68,8 @@ Restore `chords.tsx` stub; remove stack, `src/content/chords`, diagram files, `r
 
 ## Success Criteria
 
-- [ ] Sectioned catalog → detail with SVG + finger numbers
-- [ ] High-G GCEA only; G–C–E–A L→R; English-only
-- [ ] `/chords` and `/chords/{id}` work; Home lands on list
-- [ ] Stable `id`s; favorites unused but compatible
-- [ ] TDD green: catalog, diagram, list/detail, nav smoke
+- [x] Sectioned catalog → detail with SVG + finger numbers
+- [x] High-G GCEA only; G–C–E–A L→R; English-only
+- [x] `/chords` and `/chords/{id}` work; Home lands on list
+- [x] Stable `id`s; favorites unused but compatible
+- [x] TDD green: catalog, diagram, list/detail, nav smoke
