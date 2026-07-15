@@ -15,6 +15,7 @@ export default function TabsLayout() {
         name="chords"
         options={{
           title: 'Chords',
+          headerShown: false,
           tabBarLabel: 'Chords',
           tabBarAccessibilityLabel: 'Chords',
         }}

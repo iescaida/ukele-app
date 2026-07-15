@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, View } from 'react-native';
-import { router } from 'expo-router';
+import { Link } from 'expo-router';
 
 import { tokens } from '../../theme/tokens';
 import { AppText } from '../../ui/AppText';
@@ -31,15 +31,15 @@ export function HomeScreen() {
 
       <View style={styles.shortcuts}>
         {SHORTCUTS.map((shortcut) => (
-          <Pressable
-            key={shortcut.href}
-            accessibilityRole="button"
-            accessibilityLabel={shortcut.accessibilityLabel}
-            onPress={() => router.push(shortcut.href)}
-            style={styles.shortcut}
-          >
-            <AppText variant="body">{shortcut.label}</AppText>
-          </Pressable>
+          <Link key={shortcut.href} href={shortcut.href} asChild>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={shortcut.accessibilityLabel}
+              style={styles.shortcut}
+            >
+              <AppText variant="body">{shortcut.label}</AppText>
+            </Pressable>
+          </Link>
         ))}
       </View>
     </Screen>

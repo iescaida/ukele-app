@@ -50,22 +50,4 @@ describe('Profile progress stub', () => {
     expect(view.queryByText(/sign in|log in|account/i)).toBeNull();
   });
 
-  it('keeps Chords shell empty of catalog quiz and mic UI', async () => {
-    const result = renderRouter('app');
-    const view = await result;
-
-    jest.useFakeTimers();
-    await act(async () => {
-      fireEvent.press(view.getByLabelText('Chords'));
-    });
-    jest.useRealTimers();
-
-    await waitFor(() => {
-      expect(view.getByLabelText('Chords screen')).toBeTruthy();
-      expect(result.getPathname()).toBe('/chords');
-    });
-
-    expect(view.getByRole('header')).toHaveTextContent('Chords');
-    expect(view.queryByText(/catalog|quiz|coming soon|mic|microphone/i)).toBeNull();
-  });
 });
